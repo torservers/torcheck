@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-#TorCheck daemon 
+#TorCheck  not yet daemon 
 require 'optparse'
 require 'yaml'
 require 'ostruct'
