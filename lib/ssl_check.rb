@@ -1,5 +1,6 @@
 # Actual SSL Checks go here
 # TODO: Use Ruby OpenSSL gem
+#TODO: Do something actually useful
 
 
 
