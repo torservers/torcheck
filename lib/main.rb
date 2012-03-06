@@ -3,7 +3,6 @@
 require 'optparse'
 require 'yaml'
 require 'ostruct'
-require 'pp'
 
 class TorCheckOpts
 
