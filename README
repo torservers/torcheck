@@ -1,0 +1,7 @@
+== TorCheck
+
+This project aims to bring a way to monitor Tor nodes by doing ssl handshakes.
+TODO: Mail Notification
+XMPP Notification
+DaemonKit Integration
+Pretty much everything else
