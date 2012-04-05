@@ -10,4 +10,5 @@ def check_status(node)
   if stdout.gets != nil
     return true
   end
+else return false
 end

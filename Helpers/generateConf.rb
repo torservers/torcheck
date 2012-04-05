@@ -10,7 +10,8 @@ config = { "nodes" => {
 },
  "global_parameters" => {
   "checkTimeout" => "120",
-  "mailto" => "admin@torservers.net"
+  "mailto" => "admin@torservers.net",
+  "mailfrom" => "hydra@torservers.net"
 } }
 
 File.open("../lib/torcheck.conf", "w") do |f|

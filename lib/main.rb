@@ -90,7 +90,17 @@ end
 config = open(config_file) { |f| YAML.load(f)}
 node_list = config['nodes']
 global_parms = config['global_parameters']
+checkTimeout = global_parms.get(checkTimeout)
+mailTo = global_parms.get(mailto)
+mailFrom = global_parms.get(mailfrom)
 
-ssl_check.check_status(node_list.each_value)
+while(true)
+  status = ssl_check.check_status(node_list.each_value)
+  if status==false
+    Mail.sendMail
+  end
+  sleep(checkTimeout)
+end
+
 
 
