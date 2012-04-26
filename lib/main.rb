@@ -20,12 +20,13 @@ loop do
   nodes.each do |domain, ip| 
     puts "check: #{domain}"
     if check_status(ip, global['retries_on_fail'].to_i, global['ssl_timeout'].to_i)
-      body = "The node #{domain} with the IP #{ip} seems to be up again! Good job ;-)"
-      Pony.mail(:to => global['mailto'], :from => global['mailfrom'], :subject => "Node #{domain} up again", :body => body) 
-      nodes_down.delete domain
+      if nodes_down.include? domain
+        body = "The node #{domain} with the IP #{ip} seems to be up again! Good job ;-)"
+        Pony.mail(:to => global['mailto'], :from => global['mailfrom'], :subject => "Node #{domain} up again", :body => body) 
+        nodes_down.delete domain
+      end
     else # node is down!
       unless nodes_down.include? domain # if node already reported as down, ignore
-        puts "send an email for: #{domain}"
         body = "The node #{domain} with the IP #{ip} seems to be down! Go and check!"
         Pony.mail(:to => global['mailto'], :from => global['mailfrom'], :subject => "Node #{domain} down", :body => body) 
         nodes_down << domain
