@@ -1,6 +1,4 @@
 # Actual SSL Checks go here
-# TODO: Use Ruby OpenSSL gem
-#TODO: Do something actually useful
 require 'open3'
 
 def check_status(node, retries, timeout)

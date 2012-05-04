@@ -9,7 +9,9 @@ config = { "nodes" => {
   "chomsky.torservers.net" => "77.247.181.162:443"
 },
  "global_parameters" => {
-  "checkTimeout" => "120",
+   "timeout_check_all" => "2",
+  "retries_on_fail" => "2",
+  "ssl_timeout" => "2",
   "mailto" => "admin@torservers.net",
   "mailfrom" => "hydra@torservers.net"
 } }
