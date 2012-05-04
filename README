@@ -1,7 +1,9 @@
-== TorCheck
+TorCheck
 
 This project aims to bring a way to monitor Tor nodes by doing ssl handshakes.
-TODO: Mail Notification
-XMPP Notification
-DaemonKit Integration
-Pretty much everything else
+TODO: Threading, XMPP Notification
+DaemonKit Integration ,ight be nice
+
+The script can be configured via lib/torcheck.conf
+The settings in there are rather esoteric for real world usage.
+They are currently tuned for testing. Consider using longer timeouts and 3-5 retries.
