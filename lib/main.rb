@@ -22,14 +22,14 @@ loop do
     if check_status(ip, global['retries_on_fail'].to_i, global['ssl_timeout'].to_i)
       if nodes_down.include? domain
         body = "The node #{domain} with the IP #{ip} seems to be up again! Good job ;-)"
-        body += "Still down are: #{nodes_down.join(', ')}" unless nodes_down.empty?
+        body += "\r\n\r\nStill down are: #{nodes_down.join(', ')}" unless nodes_down.empty?
         Pony.mail(:to => global['mailto'], :from => global['mailfrom'], :subject => "Node #{domain} up again (#{nodes_down.size-1} nodes still down)", :body => body)
         nodes_down.delete domain
       end
     else # node is down!
       unless nodes_down.include? domain # if node already reported as down, ignore
         body = "The node #{domain} with the IP #{ip} seems to be down! Go and check!"
-        body += "Also down are: #{nodes_down.join(', ')}" unless nodes_down.empty?
+        body += "\r\n\r\nAlso down are: #{nodes_down.join(', ')}" unless nodes_down.empty?
         Pony.mail(:to => global['mailto'], :from => global['mailfrom'], :subject => "Node #{domain} down (#{nodes_down.size+1} nodes down now)", :body => body)
         nodes_down << domain
       end
